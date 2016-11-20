@@ -3,7 +3,18 @@
 # the first string, and false otherwise.
 
 def mutation?(base_word, mutation)
-
+  base_word = base_word
+  mutation = mutation.scan /\w/
+  total = []
+  mutation.each_with_index do |letter, i|
+    if base_word.include? letter[i].to_s 
+      total << letter 
+    end
+    i += 1
+  end
+  if total == mutation
+    result = true
+  end
 end
 
 # Driver code - don't touch anything below this line.

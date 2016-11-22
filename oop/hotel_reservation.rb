@@ -25,10 +25,36 @@ class HotelReservation
   end
 end
 
+first_reservation = HotelReservation.new(customer_name:["Brian"], date:["November 3rd"], room_number:["6"])
+first_reservation.room_number = "5"
+if first_reservation.room_number == "5"
+  p "Pass!"
+else
+  p "Fail!"
+end
+first_reservation.add_a_fridge
+if first_reservation.amenities == ["fridge"]
+  p "Pass!"
+else
+  p "Fail!"
+end
+first_reservation.add_a_crib
+if first_reservation.amenities == ["fridge", "crib"]
+  p "Pass!"
+else
+  p "Fail!"
+end
+first_reservation.add_a_custom_amenity("Roll-away Bed")
+if first_reservation.amenities == ["fridge", "crib", "Roll-away Bed"]
+  p "Pass!"
+else
+  p "Fail!"
+end
+p first_reservation.amenities
+
 
 # Write your own driver code below! Make sure your code tests the following:
 # The ability to change a room number even after a reservation has already been created
 # The add_a_fridge method
 # The add_a_crib method
 # The add_a_custom_amenity method
-
